@@ -1,2 +1,2 @@
 # demo-dropdown-navigation-demo
-Practising dropdown naviagtions
+Practising dropdown navigations
