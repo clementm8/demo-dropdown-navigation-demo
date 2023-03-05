@@ -1,0 +1,128 @@
+body{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    color: #eeeaeb;
+}
+
+.inner-container{
+    padding: 0 1rem;
+}
+
+
+h1{
+    font-family:'Abril Fatface', cursive;
+    font-size: 2.25rem;
+}
+
+header{
+    background-color: #001d4f;
+}
+
+
+/* Step 1: Style the all the menu links showing on the smallest screen */
+ul.main-menu a{
+    text-transform: uppercase;
+    color: #eeeaeb;
+    text-decoration: none;
+    display: block;
+    padding: 0 0.5rem;
+}
+
+svg{
+    display: none;
+}
+
+ul.main-menu a:hover{
+    color: #002790;
+    background-color: #4ebcff;
+    border-radius: 5px;
+    text-decoration: underline wavy;
+}
+
+ul.main-menu li{
+    line-height: 2.8rem;
+    margin: 0.5rem 0;
+    position: relative;
+}
+
+ul.dropdown-menu{
+    padding: 0 1rem;
+}
+
+@media screen and (min-width: 850px){
+    ul.main-menu{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    ul.main-menu li{
+        flex: 1 0 auto;
+        text-align: center;
+    }
+
+    li.submenu a{
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    h1,
+    .dropdown-menu a{
+        text-align: center;
+    }
+
+    svg{
+        width: 1rem;
+        display: block;
+    }
+    
+    svg path{
+        fill: #f5f5f5
+    }
+
+/* Step 2: position and hide the dropdown menu */
+    ul.dropdown-menu{
+        position: absolute;
+        right: 0;
+        background-color: #0e6d9c;
+        border-radius: 0 0 5px 5px;
+        min-width: 100%;
+        visibility: hidden;
+        opacity: 0;
+    }
+/* Step 3: add hover state that show the submenu */
+    ul.main-menu li:hover > ul.dropdown-menu{
+        visibility: visible;
+        opacity: 1;
+    }
+/* Step 4: add a transition effect to smooth out the visability of the dropdowns */
+    ul.dropdown-menu{
+        transition: all 0.35s ease;
+    }
+}
+
+/** /* Step 5: add accessibility with the :focus-within state on the li's which will target the anchor tags inside*/
+ul.main-menu li:focus-within > ul,
+ul.main-menu li> ul:focus{
+    visibility: visible;
+    opacity: 1;
+    display: block;
+}
+@media screen and (min-width: 1100px){
+    /* Once there's room change the layout so that the h1 heading on the left and the nav is on the right */
+    .inner-container{
+        display: flex;
+        justify-content: space-between;
+    }
+
+}
+
+@media screen and (min-width: 1400px){
+    /* Add a fixed width center container, once there's room change the layout so that the h1 heading on the left and the nav is on the right */
+    .inner-container{
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+}
+
+
